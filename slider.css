@@ -1,6 +1,13 @@
 :root {
   --number_of_slides: 6;
+  --size: 100vw;
   --container_slides: var(--number_of_slides) * 2;
+  --negative_size: calc(var(--size) * -1);
+  --translate_value: calc(
+    calc(var(--negative_size) / var(--number_of_slides)) *
+      var(--number_of_slides)
+  );
+  --calc_size: calc(var(--size) / var(--number_of_slides));
 }
 
 .slider {
@@ -14,11 +21,11 @@
   display: flex;
   animation: scroll 15s linear infinite;
   -webkit-animation: scroll 15s linear infinite;
-  width: calc(calc(100vw / var(--number_of_slides)) * var(--container_slides));
+  width: calc(var(--calc_size) * var(--container_slides));
 }
 
 .slider .slide {
-  width: calc(100vw / var(--number_of_slides));
+  width: var(--calc_size);
 }
 
 .slider .slide img {
@@ -31,11 +38,7 @@
     transform: translateX(0);
   }
   100% {
-    -webkit-transform: translateX(
-      calc(calc(-100vw / var(--number_of_slides)) * var(--number_of_slides))
-    );
-    transform: translateX(
-      calc(calc(-100vw / var(--number_of_slides)) * var(--number_of_slides))
-    );
+    -webkit-transform: translateX(var(--translate_value));
+    transform: translateX(var(--translate_value));
   }
 }
