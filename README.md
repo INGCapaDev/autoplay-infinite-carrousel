@@ -1,3 +1,3 @@
 # autoplay-infinite-carrousel
 
-Preview animation: autoplay-infinite-carrousel.vercel.app
+Preview animation: [Click Here](https://autoplay-infinite-carrousel.vercel.app)
